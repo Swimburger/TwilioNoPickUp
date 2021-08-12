@@ -1,0 +1,4 @@
+dotnet new webapi
+dotnet add package Twilio.AspNet.Core
+dotnet watch run
+.\ngrok.exe http https://localhost:5001/
