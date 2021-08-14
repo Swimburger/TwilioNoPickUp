@@ -49,6 +49,7 @@ namespace TwilioNoPickUp.Controllers
             var response = new VoiceResponse();
             if (badStatusCodes.Contains(request.DialCallStatus))
             {
+                logger.LogInformation("Bad dial call status: {DialCallStatus}", request.DialCallStatus);
                 var gather = new Gather(numDigits: 1, action: CreateActionUri(nameof(RequestCallback)));
                 gather.Say("The person you are trying to reach is unavailable. If you would like to receive a callback, press 1. If not, press 2 or hang up.");
                 response.Append(gather)
